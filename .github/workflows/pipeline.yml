@@ -3,8 +3,5 @@ name: CI/CD_GCP_Actions
 on:
   workflow_dispatch:
   push:
-    paths:
-    - 'terraform-azure/**'
-    - '.github/workflows/pipeline.yml'
     branches:
     - main
