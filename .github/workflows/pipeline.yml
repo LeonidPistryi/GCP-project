@@ -9,7 +9,7 @@ on:
 jobs: 
   terraform:
     runs-on: ubuntu-latest
-    default:
+    defaults:
       run:
         working-directory: terraform
 
