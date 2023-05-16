@@ -42,5 +42,5 @@ jobs:
             
       - name: Create bucket if dosn't exists
         env:
-          SCRIPT_DIR: ${{ github.workspace }}/terraform_gcp/scripts
+          SCRIPT_DIR: ${{ github.workspace }}/terraform/scripts
         run: bash  $SCRIPT_DIR/create-bucket.sh
