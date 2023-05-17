@@ -41,9 +41,9 @@ jobs:
           SCRIPT_DIR: ${{ github.workspace }}/terraform/scripts
         run: bash  $SCRIPT_DIR/create-bucket.sh
 
-      - name: Terraform Init
-        id: init
-        run: terraform init
+      # - name: Terraform Init
+      #   id: init
+      #   run: terraform init
 
       # - name: Terraform Plan
       #   id: plan
