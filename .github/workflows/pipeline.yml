@@ -1,7 +1,6 @@
 name: CI/CD_GCP_Actions
 
 on:
-  workflow_dispatch:
   push:
     paths:
       - 'terraform/**'
