@@ -91,7 +91,7 @@ jobs:
       run: echo "This is Services" && kubectl get service && echo "This is pods" && kubectl get pods  && echo "This is Deployments" && kubectl get  deployment
 
     - name: Apply Kubernetes manifest
-      run: kubectl apply -f mysql.yml
+      run: kubectl apply -f mysql.yaml
 
     - name: Wait for 80 seconds()
       run: sleep 80s
@@ -117,7 +117,7 @@ jobs:
       run: echo "This is Services" && kubectl get service && echo "This is PODS" &&kubectl get pods  && echo "This is Deployments" && kubectl get  deployment
 
     - name: Apply Kubernetes manifest after Delete
-      run: kubectl apply -f mysql.yml
+      run: kubectl apply -f mysql.yaml
 
     - name: Wait for 80 seconds()
       run: sleep 80s
