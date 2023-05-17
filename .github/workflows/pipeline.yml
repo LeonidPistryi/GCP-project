@@ -16,19 +16,19 @@ env:
   REGION: us-central1
 
 jobs: 
-  terraform:
+  terraform-CI:
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
         working-directory: terraform
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    # steps:
+    #   - name: Checkout code
+    #     uses: actions/checkout@v3
 
-      - name: Decode credentials
-        run: echo "${{ secrets.GCP_CREDENTIALS }}" | base64 -d > credentials_file.json
+    #   - name: Decode credentials
+    #     run: echo "${{ secrets.GCP_CREDENTIALS }}" | base64 -d > credentials_file.json
 
       # - name: Authentication with Google Cloud
       #   run: |
