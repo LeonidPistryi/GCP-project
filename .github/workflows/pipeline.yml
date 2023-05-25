@@ -119,6 +119,9 @@ jobs:
     - name: Apply Kubernetes manifest after Delete
       run: kubectl apply -f mysql.yaml
 
+    - name: Init-database
+      run: kubectl apply -f mysql.yaml
+
     - name: Wait for 80 seconds()
       run: sleep 80s
 
