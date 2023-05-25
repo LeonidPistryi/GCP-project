@@ -9,7 +9,7 @@ REPO_URL="https://packages.cloud.google.com/apt"
 # sudo install gcloud components install gke-gcloud-auth-plugin and another necassary commands to RUN
 sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
 sudo apt-get  install google-cloud-sdk-gke-gcloud-auth-plugin
-gcloud container clusters get-credentials itsprout-k8s-cluster --region us-central1 --project my-first-project-327511
-gcloud components update
-sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
-gke-gcloud-auth-plugin --version 
+# gcloud container clusters get-credentials itsprout-k8s-cluster --region us-central1 --project my-first-project-327511
+# gcloud components update
+# sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+# gke-gcloud-auth-plugin --version 
