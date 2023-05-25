@@ -120,7 +120,7 @@ jobs:
       run: kubectl apply -f mysql.yaml
 
     - name: Auth Plugin for cluster
-      uses: simenandre/setup-gke-gcloud-auth-plugin@v1
+        uses: simenandre/setup-gke-gcloud-auth-plugin@v1
 
     - name: Wait for 80 seconds()
       run: sleep 80s
