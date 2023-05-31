@@ -54,8 +54,6 @@ spec:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:
           claimName: wp-pv-claim
-
-          
 ---
 apiVersion: v1
 kind: Service
