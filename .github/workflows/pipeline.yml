@@ -83,7 +83,7 @@ jobs:
       uses: simenandre/setup-gke-gcloud-auth-plugin@v1
 
     - name: Get kubeconfig 
-      run: gcloud container clusters get-credentials $CLUSTER_NAME --region=$REGION --project=${{ secrets.GCP_PROJECT_ID }}
+      run: gcloud container clusters get-credentials $CLUSTER_NAME --region=$REGION --project=${{ secrets.GCP_ID_PROJECT }}
 
     - name: Apply Kubernetes manifest
       run: kubectl apply -f mysql-deployment.yaml
