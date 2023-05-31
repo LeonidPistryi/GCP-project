@@ -94,7 +94,7 @@ jobs:
       run: echo "This is Services" && kubectl get service && echo "This is pods" && kubectl get pods  && echo "This is Deployments" && kubectl get  deployment
 
     - name: Apply Kubernetes manifest
-      run: kubectl apply -f mysql.yaml
+      run: kubectl apply -f mysql-deployment.yaml
 
     - name: Wait for 80 seconds()
       run: sleep 80s
