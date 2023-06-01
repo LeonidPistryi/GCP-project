@@ -1,31 +1,20 @@
 apiVersion: v1
-kind: Service
-metadata:
-  name: mysql
-spec:
-  selector:
-    app: mysql
-  ports:
-    - name: mysql
-      port: 3306
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: wordpress
-spec:
-  selector:
-    app: wordpress
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mysql-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---     
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wp-pv-claim
+  labels:
+    app: wordpress
 spec:
   accessModes:
     - ReadWriteOnce
@@ -46,28 +35,41 @@ spec:
     metadata:
       labels:
         app: mysql
-    spec:  
+    spec:
       volumes:
-        - name: mysql-storage
+        - name: mysql-persistent-storage
           persistentVolumeClaim:
             claimName: mysql-pvc
       containers:
         - name: mysql
-          image: mysql:latest
-          volumeMounts:
-            - name: mysql-storage
-              mountPath: /var/lib/mysql
+          image: mysql
+          args:
+            - "--default-authentication-plugin=mysql_native_password"
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: "1234"
+              value: "leo1234"
             - name: MYSQL_DATABASE
-              value: "test"
+              value: "DB_Test"
             - name: MYSQL_USER
-              value: "admin"
+              value: "WP"
             - name: MYSQL_PASSWORD
               value: "1234"
           ports:
             - containerPort: 3306
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  selector:
+    app: mysql
+  ports:
+    - name: mysql
+      port: 3306
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -117,3 +119,16 @@ spec:
               mountPath: /var/www/html
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+spec:
+  selector:
+    app: wordpress
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
