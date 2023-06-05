@@ -10,7 +10,7 @@ on:
 
 env:
   BUCKET_NAME: gcp-team-tf-state-staging
-  SERVICE_ACCOUNT: gcp-team@my-first-project-327511.iam.gserviceaccount.com
+  SERVICE_ACCOUNT: maximus-sa@itspoutproject.iam.gserviceaccount.com
   GCP_ID_PROJECT: ${{ secrets.GCP_ID_PROJECT }}
   CLUSTER_NAME: itsprout-k8s-cluster
   REGION: us-central1
