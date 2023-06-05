@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "gcp-team-tf-state-staging"
+    bucket = "itsprouttfstate"
     prefix = "terraform/state"
     credentials = "credentials_file.json"
   }

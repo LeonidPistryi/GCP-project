@@ -9,7 +9,7 @@ on:
     - main
 
 env:
-  BUCKET_NAME: gcp-team-tf-state-staging
+  BUCKET_NAME: itsprouttfstate
   SERVICE_ACCOUNT: maximus-sa@itspoutproject.iam.gserviceaccount.com
   GCP_ID_PROJECT: ${{ secrets.GCP_ID_PROJECT }}
   CLUSTER_NAME: itsprout-k8s-cluster
