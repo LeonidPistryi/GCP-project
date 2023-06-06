@@ -3,7 +3,7 @@ variable "def_name" {
 }
 
 variable "project_id" {
-  default = "my-first-project-327511"
+  default = "itspoutproject"
 }
 
 variable "region_prj" {
@@ -19,7 +19,7 @@ variable "sa_name" {
 }
 
 variable "sa_account" {
-  default = "gcp-team@my-first-project-327511.iam.gserviceaccount.com"
+  default = "maximus-sa@itspoutproject.iam.gserviceaccount.com"
 }
 
 variable "local_ip_range" {
