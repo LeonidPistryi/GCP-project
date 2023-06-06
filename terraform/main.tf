@@ -32,6 +32,7 @@ resource "google_compute_network" "vpc_network" {
   auto_create_subnetworks = false
 }
 
+
 resource "google_container_cluster" "k8s_cluster" {
   name               = "${var.def_name}-k8s-cluster"
   location           = var.region_prj
