@@ -27,7 +27,6 @@ resource "google_compute_subnetwork" "vpc_subnetwork" {
   private_ip_google_access = true
 }
 
-
 resource "google_compute_network" "vpc_network" {
   name                    = "${var.def_name}-network"
   auto_create_subnetworks = false
