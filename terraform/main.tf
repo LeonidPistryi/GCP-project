@@ -85,3 +85,12 @@ output "cluster_credentials" {
   value     = google_container_cluster.k8s_cluster.master_auth
   sensitive = true
 }
+
+provider "dns" {
+  update {
+    # server        = "192.168.0.1"
+    key_name      = "fulldevteam.academy"
+    # key_algorithm = "hmac-md5"
+    # key_secret    = "3VwZXJzZWNyZXQ="
+  }
+}
