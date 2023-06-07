@@ -88,7 +88,7 @@ output "cluster_credentials" {
 
 provider "dns" {
   update {
-    # server        = "192.168.0.1"
+    server        = "34.173.106.172"
     key_name      = "fulldevteam.academy"
     # key_algorithm = "hmac-md5"
     # key_secret    = "3VwZXJzZWNyZXQ="
