@@ -100,13 +100,13 @@ resource "google_dns_managed_zone" "dns" {
   # dns_name    = "Name you`re DNS zone"
   # description = "Managed Zone"
 
-  dnssec_config {
-    state = "on"
-  }
+  # dnssec_config {
+  #   state = "on"
+  # }
 }
 
 resource "google_dns_record_set" "dns_record" {
-  # name         = "Record name DNS"
+  name         = "Record name DNS"
   managed_zone = google_dns_managed_zone.dns.name
   # type         = "A"
   # ttl          = 300
