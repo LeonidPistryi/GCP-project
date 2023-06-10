@@ -22,7 +22,7 @@ RUN wget -O /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh
 # Set the server name and login credentials
 ENV SERVER_NAME mysql
 ENV USER_NAME root
-ENV PASSWORD 1234
+ENV PASSWORD wordsec
 # Implemented scripts
 COPY scripts/setup-db-wp.sh /usr/local/bin/setup-db-wp.sh
 RUN chmod +x /usr/local/bin/setup-db-wp.sh /usr/local/bin/setup-db-wp.sh
