@@ -86,6 +86,7 @@ output "cluster_credentials" {
   sensitive = true
 }
 
+
 provider "dns" {
   update {
     # server        = "35.184.87.55"
