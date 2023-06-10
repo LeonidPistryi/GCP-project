@@ -89,30 +89,29 @@ output "cluster_credentials" {
 provider "dns" {
   update {
     # server        = "35.184.87.55"
-    # key_name      = "it-sproutdevteam.fun"
+    key_name      = "it-sproutdevteam.fun"
     # key_algorithm = "hmac-md5"
     # key_secret    = "3VwZXJzZWNyZXQ="
   }
 }
 
-resource "google_dns_managed_zone" "example_zone" {
-  name        = "it-sproutdevteam-fun"  # Замените на желаемое имя зоны
-  dns_name    = "it-sproutdevteam.fun."  # Замените на свой домен
-  description = "Managed Zone for it-sproutdevteam.fun"
+# resource "google_dns_managed_zone" "dns_zone" {
+#   name        = "it-sproutdevteam-fun"  # Replace with your desired zone name
+#   dns_name    = "it-sproutdevteam.fun."  # Replace with your domain
+#   description = "Managed Zone for it-sproutdevteam.fun"
 
-  labels = {
-    environment = "production"
-  }
-}
+#   labels = {
+#     environment = "production"
+#   }
+# }
 
-# Создание записи типа A для домена
-resource "google_dns_record_set" "example_record" {
-  managed_zone = google_dns_managed_zone.example_zone.name
-  name         = "it-sproutdevteam.fun."  # Замените на свой домен
-  type         = "A"
-  ttl          = 300
+# resource "google_dns_record_set" "dns_record" {
+#   managed_zone = google_dns_managed_zone.dns_zone.name
+#   name         = "it-sproutdevteam.fun."  # Replace with your domain
+#   type         = "A"
+#   ttl          = 300
 
-  rrdatas = [
-    "34.134.88.165"  # Замените на желаемый IP-адрес
-  ]
-}
+#   rrdatas = [
+#     "34.134.88.165"  # Replace with your desired IP address
+#   ]
+# }
