@@ -95,20 +95,24 @@ provider "dns" {
   }
 }
 
-resource "google_dns_managed_zone" "dns" {
-  name        = "it-sproutdevteam.fun"
-  # dns_name    = "Name you`re DNS zone"
-  # description = "Managed Zone"
+resource "google_dns_managed_zone" "example_zone" {
+  name        = "it-sproutdevteam-fun"  # Замените на желаемое имя зоны
+  dns_name    = "it-sproutdevteam.fun."  # Замените на свой домен
+  description = "Managed Zone for it-sproutdevteam.fun"
 
-  # dnssec_config {
-  #   state = "on"
-  # }
+  labels = {
+    environment = "production"
+  }
 }
 
-resource "google_dns_record_set" "dns_record" {
-  name         = "Record name DNS"
-  managed_zone = google_dns_managed_zone.dns.name
-  # type         = "A"
-  # ttl          = 300
-  # rrdatas      = ["IP address you`re server"]
+# Создание записи типа A для домена
+resource "google_dns_record_set" "example_record" {
+  managed_zone = google_dns_managed_zone.example_zone.name
+  name         = "it-sproutdevteam.fun."  # Замените на свой домен
+  type         = "A"
+  ttl          = 300
+
+  rrdatas = [
+    "34.134.88.165"  # Замените на желаемый IP-адрес
+  ]
 }
