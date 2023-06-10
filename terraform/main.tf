@@ -89,8 +89,26 @@ output "cluster_credentials" {
 provider "dns" {
   update {
     # server        = "35.184.87.55"
-    key_name      = "it-sproutdevteam.fun"
+    # key_name      = "it-sproutdevteam.fun"
     # key_algorithm = "hmac-md5"
     # key_secret    = "3VwZXJzZWNyZXQ="
   }
+}
+
+resource "google_dns_managed_zone" "dns" {
+  name        = "Name you`re DNS zone"
+  dns_name    = "it-sproutdevteam.fun"
+  description = "Managed Zone"
+
+  dnssec_config {
+    state = "on"
+  }
+}
+
+resource "google_dns_record_set" "dns_record" {
+  name         = "Record name DNS"
+  managed_zone = google_dns_managed_zone.dns.name
+  type         = "A"
+  ttl          = 300
+  rrdatas      = ["IP address you`re server"]
 }
