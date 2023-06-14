@@ -86,6 +86,7 @@ output "cluster_credentials" {
   sensitive = true
 }
 
+
 provider "dns" {
   update {
     # server        = "35.184.87.55"
@@ -94,24 +95,3 @@ provider "dns" {
     # key_secret    = "3VwZXJzZWNyZXQ="
   }
 }
-
-# resource "google_dns_managed_zone" "dns_zone" {
-#   name        = "it-sproutdevteam-fun"  # Replace with your desired zone name
-#   dns_name    = "it-sproutdevteam.fun."  # Replace with your domain
-#   description = "Managed Zone for it-sproutdevteam.fun"
-
-#   labels = {
-#     environment = "production"
-#   }
-# }
-
-# resource "google_dns_record_set" "dns_record" {
-#   managed_zone = google_dns_managed_zone.dns_zone.name
-#   name         = "it-sproutdevteam.fun."  # Replace with your domain
-#   type         = "A"
-#   ttl          = 300
-
-#   rrdatas = [
-#     "34.134.88.165"  # Replace with your desired IP address
-#   ]
-# }
